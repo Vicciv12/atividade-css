@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="banco"><defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3ece2"/><stop offset="1" stop-color="#e3d7c6"/></linearGradient>
+<linearGradient id="m" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9d6b8"/><stop offset="1" stop-color="#c9a77a"/></linearGradient>
+<radialGradient id="glow"><stop offset="0" stop-color="#fff3d6" stop-opacity=".95"/><stop offset="1" stop-color="#fff3d6" stop-opacity="0"/></radialGradient>
+</defs><rect width="800" height="600" fill="url(#bg)"/><g transform="translate(170.00000000000003 70.00000000000003) scale(1.15)"><ellipse cx="200" cy="352" rx="120" ry="12" fill="#000" opacity=".12"/><path d="M126 182 L108 340" stroke="#b58f5f" stroke-width="15" stroke-linecap="round"/><path d="M274 182 L292 340" stroke="#b58f5f" stroke-width="15" stroke-linecap="round"/><path d="M200 182 L200 322" stroke="#a07c4f" stroke-width="15" stroke-linecap="round"/><rect x="80" y="145" width="240" height="40" rx="18" fill="url(#m)"/></g></svg>

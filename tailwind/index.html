@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forma — Objetos para o dia a dia (Tailwind)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['-apple-system','BlinkMacSystemFont','"SF Pro Display"','"Segoe UI"','Roboto','sans-serif'] } } } };
+  </script>
+  <style>
+    dialog::backdrop { background: rgba(0,0,0,.35); backdrop-filter: blur(4px); }
+  </style>
+</head>
+<body class="bg-[#fbfbfd] text-[#1d1d1f] font-sans tracking-tight antialiased">
+  <header class="sticky top-0 z-40 border-b border-neutral-200 bg-[#fbfbfd]/80 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between px-6 py-4" aria-label="Menu principal">
+      <a href="#inicio" class="text-lg font-semibold">Forma</a>
+      <button id="burger" class="rounded-lg p-2 md:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500"
+              aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <ul id="menu" class="hidden w-full flex-col gap-1 pt-4 text-neutral-600 md:flex md:w-auto md:flex-row md:gap-8 md:pt-0">
+        <li><a class="block py-2 hover:text-black" href="#destaques">Destaques</a></li>
+        <li><a class="block py-2 hover:text-black" href="#colecao">Coleção</a></li>
+        <li><a class="block py-2 hover:text-black" href="#precos">Preços</a></li>
+        <li><a class="block py-2 hover:text-black" href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section id="destaques" class="mx-auto max-w-6xl px-6 py-20" aria-labelledby="t-destaques">
+      <h1 id="t-destaques" class="text-center text-4xl font-semibold tracking-tighter md:text-6xl">Objetos que pedem pouco.</h1>
+      <p class="mx-auto mb-12 mt-4 max-w-xl text-center text-lg text-neutral-500">Peças feitas à mão em Salvador, com poucos materiais e muito cuidado.</p>
+
+      <div class="relative" role="region" aria-roledescription="carrossel" aria-label="Peças em destaque">
+        <div class="relative h-80 overflow-hidden rounded-[28px] md:h-[420px]">
+          <div class="slide absolute inset-0 transition-opacity duration-700 opacity-100"><img src="imagens/luminaria-banner.svg" class="h-full w-full object-cover" alt="Luminária Arco"><div class="absolute bottom-12 left-1/2 -translate-x-1/2 rounded-2xl bg-white/85 px-6 py-4 text-center backdrop-blur"><h2 class="text-2xl font-semibold">Luminária Arco</h2><p class="text-neutral-500">Uma curva de alumínio. Uma luz suave.</p></div></div>
+          <div class="slide absolute inset-0 transition-opacity duration-700 opacity-0"><img src="imagens/vaso-banner.svg" class="h-full w-full object-cover" alt="Vaso Seixo"><div class="absolute bottom-12 left-1/2 -translate-x-1/2 rounded-2xl bg-white/85 px-6 py-4 text-center backdrop-blur"><h2 class="text-2xl font-semibold">Vaso Seixo</h2><p class="text-neutral-500">Cerâmica fosca, moldada como pedra de rio.</p></div></div>
+          <div class="slide absolute inset-0 transition-opacity duration-700 opacity-0"><img src="imagens/banco-banner.svg" class="h-full w-full object-cover" alt="Banco Duna"><div class="absolute bottom-12 left-1/2 -translate-x-1/2 rounded-2xl bg-white/85 px-6 py-4 text-center backdrop-blur"><h2 class="text-2xl font-semibold">Banco Duna</h2><p class="text-neutral-500">Madeira clara, linhas calmas.</p></div></div>
+        </div>
+        <button id="prev" class="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-3 shadow backdrop-blur hover:bg-white" aria-label="Slide anterior">‹</button>
+        <button id="next" class="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-3 shadow backdrop-blur hover:bg-white" aria-label="Próximo slide">›</button>
+        <div id="dots" class="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2"></div>
+      </div>
+    </section>
+    <section id="colecao" class="mx-auto max-w-6xl px-6 py-20" aria-labelledby="t-colecao">
+      <h2 id="t-colecao" class="mb-12 text-3xl font-semibold tracking-tighter md:text-4xl">Coleção</h2>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <article class="overflow-hidden rounded-[28px] border border-neutral-200 bg-white shadow-sm">
+          <img class="aspect-[4/3] w-full object-cover" src="imagens/luminaria-card.svg" alt="Luminária Arco" loading="lazy">
+          <div class="p-6"><h3 class="text-xl font-semibold">Luminária Arco</h3>
+            <p class="mb-4 mt-2 text-neutral-500">Alumínio escovado com luz quente e dimmer discreto.</p>
+            <a href="#contato" class="inline-block rounded-full bg-[#1d1d1f] px-5 py-2 text-sm text-white hover:bg-black">Quero esta peça</a></div></article>
+        <article class="overflow-hidden rounded-[28px] border border-neutral-200 bg-white shadow-sm">
+          <img class="aspect-[4/3] w-full object-cover" src="imagens/vaso-card.svg" alt="Vaso Seixo" loading="lazy">
+          <div class="p-6"><h3 class="text-xl font-semibold">Vaso Seixo</h3>
+            <p class="mb-4 mt-2 text-neutral-500">Cerâmica fosca, esmaltada por dentro, pronta para água.</p>
+            <a href="#contato" class="inline-block rounded-full bg-[#1d1d1f] px-5 py-2 text-sm text-white hover:bg-black">Quero esta peça</a></div></article>
+        <article class="overflow-hidden rounded-[28px] border border-neutral-200 bg-white shadow-sm">
+          <img class="aspect-[4/3] w-full object-cover" src="imagens/banco-card.svg" alt="Banco Duna" loading="lazy">
+          <div class="p-6"><h3 class="text-xl font-semibold">Banco Duna</h3>
+            <p class="mb-4 mt-2 text-neutral-500">Madeira maciça com acabamento em óleo natural.</p>
+            <a href="#contato" class="inline-block rounded-full bg-[#1d1d1f] px-5 py-2 text-sm text-white hover:bg-black">Quero esta peça</a></div></article>
+      </div>
+    </section>
+    <section id="precos" class="mx-auto max-w-6xl px-6 py-20" aria-labelledby="t-precos">
+      <h2 id="t-precos" class="mb-12 text-3xl font-semibold tracking-tighter md:text-4xl">Preços e prazos</h2>
+      <div class="overflow-x-auto rounded-[28px] border border-neutral-200 bg-white p-2">
+        <table class="w-full min-w-[480px] text-left">
+          <caption class="sr-only">Lista de peças com material, prazo e preço</caption>
+          <thead><tr class="text-sm text-neutral-500"><th scope="col" class="p-4 font-medium">Peça</th><th scope="col" class="p-4 font-medium">Material</th><th scope="col" class="p-4 font-medium">Prazo</th><th scope="col" class="p-4 text-right font-medium">Preço</th></tr></thead>
+          <tbody class="[&>tr:nth-child(odd)]:bg-neutral-50">
+            <tr><th scope="row" class="p-4 font-medium">Luminária Arco</th><td class="p-4">Alumínio</td><td class="p-4">10 dias</td><td class="p-4 text-right">R$ 890</td></tr>
+            <tr><th scope="row" class="p-4 font-medium">Vaso Seixo</th><td class="p-4">Cerâmica</td><td class="p-4">7 dias</td><td class="p-4 text-right">R$ 240</td></tr>
+            <tr><th scope="row" class="p-4 font-medium">Banco Duna</th><td class="p-4">Madeira</td><td class="p-4">15 dias</td><td class="p-4 text-right">R$ 1.150</td></tr>
+            <tr><th scope="row" class="p-4 font-medium">Bandeja Maré</th><td class="p-4">Carvalho</td><td class="p-4">5 dias</td><td class="p-4 text-right">R$ 180</td></tr>
+            <tr><th scope="row" class="p-4 font-medium">Cabide Linha</th><td class="p-4">Aço</td><td class="p-4">6 dias</td><td class="p-4 text-right">R$ 130</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section id="contato" class="mx-auto max-w-3xl px-6 py-20" aria-labelledby="t-contato">
+      <h2 id="t-contato" class="text-3xl font-semibold tracking-tighter md:text-4xl">Fale com a gente</h2>
+      <p class="mb-12 mt-2 text-neutral-500">Responderemos em até dois dias úteis.</p>
+      <form id="form" class="grid grid-cols-1 gap-5 md:grid-cols-2">
+        <div><label for="nome" class="mb-1 block text-sm font-medium">Nome</label>
+          <input id="nome" type="text" required minlength="3" class="w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 [&:not(:placeholder-shown):invalid]:border-red-500 focus:outline focus:outline-2 focus:outline-blue-500" placeholder=" "></div>
+        <div><label for="email" class="mb-1 block text-sm font-medium">E-mail</label>
+          <input id="email" type="email" required class="w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 [&:not(:placeholder-shown):invalid]:border-red-500 focus:outline focus:outline-2 focus:outline-blue-500" placeholder=" "></div>
+        <div><label for="peca" class="mb-1 block text-sm font-medium">Peça de interesse</label>
+          <select id="peca" required class="w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 focus:outline focus:outline-2 focus:outline-blue-500">
+            <option value="" selected disabled>Escolha uma peça</option><option>Luminária Arco</option><option>Vaso Seixo</option><option>Banco Duna</option></select></div>
+        <div><label for="tel" class="mb-1 block text-sm font-medium">Telefone (opcional)</label>
+          <input id="tel" type="tel" placeholder="(71) 90000-0000" class="w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 focus:outline focus:outline-2 focus:outline-blue-500"></div>
+        <div class="md:col-span-2"><label for="msg" class="mb-1 block text-sm font-medium">Mensagem</label>
+          <textarea id="msg" rows="4" required minlength="10" class="w-full rounded-2xl border border-neutral-300 bg-white px-4 py-3 focus:outline focus:outline-2 focus:outline-blue-500"></textarea></div>
+        <div class="flex flex-wrap gap-3 md:col-span-2">
+          <button type="submit" class="rounded-full bg-[#1d1d1f] px-6 py-3 text-white hover:bg-black">Enviar mensagem</button>
+          <button type="button" id="abrir" class="rounded-full border border-neutral-900 px-6 py-3 hover:bg-neutral-100">Agendar visita ao ateliê</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <dialog id="modal" aria-labelledby="modal-titulo" class="m-auto w-[calc(100%-2rem)] max-w-md rounded-[28px] p-0 shadow-2xl">
+    <div class="p-8">
+      <h2 id="modal-titulo" class="text-2xl font-semibold">Agendar visita</h2>
+      <p class="mt-3 text-neutral-500">Visitas acontecem aos sábados, das 10h às 14h, no ateliê. Deseja reservar um horário?</p>
+      <div class="mt-8 flex justify-end gap-3">
+        <button id="fechar" class="rounded-full border border-neutral-900 px-5 py-2 hover:bg-neutral-100">Agora não</button>
+        <button id="confirmar" class="rounded-full bg-[#1d1d1f] px-5 py-2 text-white hover:bg-black">Reservar horário</button>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="border-t border-neutral-200 py-10 text-center text-sm text-neutral-500">
+    © 2026 Forma · Atividade de Tailwind CSS · UCSal — Engenharia de Software
+  </footer>
+
+  <script>
+    const burger = document.getElementById('burger'), menu = document.getElementById('menu');
+    burger.addEventListener('click', () => {
+      const aberto = menu.classList.toggle('hidden') === false;
+      burger.setAttribute('aria-expanded', aberto);
+    });
+
+    const slides = [...document.querySelectorAll('.slide')], dots = document.getElementById('dots');
+    let atual = 0, timer;
+    slides.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.setAttribute('aria-label', `Ir para o slide ${i + 1}`);
+      d.className = 'h-2 w-2 rounded-full bg-neutral-900/30 aria-[current=true]:bg-neutral-900';
+      d.onclick = () => { ir(i); reiniciar(); };
+      dots.appendChild(d);
+    });
+    function ir(n) {
+      atual = (n + slides.length) % slides.length;
+      slides.forEach((s, i) => { s.classList.toggle('opacity-100', i === atual); s.classList.toggle('opacity-0', i !== atual); });
+      [...dots.children].forEach((d, i) => d.setAttribute('aria-current', i === atual));
+    }
+    const reiniciar = () => { clearInterval(timer); timer = setInterval(() => ir(atual + 1), 5000); };
+    document.getElementById('prev').onclick = () => { ir(atual - 1); reiniciar(); };
+    document.getElementById('next').onclick = () => { ir(atual + 1); reiniciar(); };
+    ir(0); reiniciar();
+
+    const modal = document.getElementById('modal');
+    document.getElementById('abrir').onclick = () => modal.showModal();
+    document.getElementById('fechar').onclick = () => modal.close();
+    document.getElementById('confirmar').onclick = () => modal.close();
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.close(); });
+
+    const form = document.getElementById('form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Mensagem enviada. Obrigado!'); form.reset();
+    });
+  </script>
+</body>
+</html>
